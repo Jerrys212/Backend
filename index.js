@@ -4,6 +4,7 @@ import cors from "cors";
 import checklistRouter from "./routes/checklist/checklistRouter.js";
 import posRouter from "./routes/pos/posRouter.js";
 import morgan from "morgan";
+import router from "./routes/checklist/checklistRouter.js";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(cors({ origin: "*" }));
 
 const PORT = process.env.PORT || 4000;
 
+app.use("/", router);
 app.use("/checklist", checklistRouter);
 app.use("/pos", posRouter);
 
