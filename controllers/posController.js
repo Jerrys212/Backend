@@ -8,6 +8,7 @@ const nuevoProducto = async (req, res) => {
     const guardar = await registrar.save();
     return res.status(200).json(guardar);
   } catch (error) {
+    console.log(error);
     return res.status(400).json(error);
   }
 };
@@ -17,6 +18,7 @@ const obtenerProductos = async (req, res) => {
     const encontrar = await Productos.find({});
     return res.status(200).json(encontrar);
   } catch (error) {
+    console.log(error);
     return res.status(400).json(error);
   }
 };
@@ -40,6 +42,7 @@ const actualizarProdcuto = async (req, res) => {
     return res.status(200).json(actualizar);
   } catch (error) {
     console.log(error);
+    console.log(error);
     return res.status(400).json(error);
   }
 };
@@ -56,6 +59,7 @@ const nuevaOrden = async (req, res) => {
       .json({ reply: "Orden Registrada Correctamente", guardar });
   } catch (error) {
     console.log(error);
+    console.log(error);
     return res.status(400).json(error);
   }
 };
@@ -67,6 +71,7 @@ const obtenerOrden = async (req, res) => {
     const encontrar = await Orden.findOne({ noOrden });
     return res.status(200).json(encontrar);
   } catch (error) {
+    console.log(error);
     return res.status(400).json(error);
   }
 };

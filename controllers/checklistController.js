@@ -5,6 +5,7 @@ const get = async (req, res) => {
     const encontrar = await Checklist.find({});
     return res.status(200).json(encontrar);
   } catch (error) {
+    console.log(error);
     return res.status(400).json(error);
   }
 };
