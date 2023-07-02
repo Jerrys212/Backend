@@ -51,6 +51,20 @@ const posSchemas = {
     },
     { timestamps: true, versionKey: false }
   ),
+  mesas: new mongoose.Schema(
+    {
+      mesa: {
+        type: String,
+      },
+      cantidadPersonas: {
+        type: String,
+      },
+      disponible: {
+        type: Boolean,
+      },
+    },
+    { versionKey: false, timestamps: true }
+  ),
 };
 
 export default posSchemas;

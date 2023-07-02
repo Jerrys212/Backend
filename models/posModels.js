@@ -8,5 +8,6 @@ const Productos = mongoose.model(
 );
 
 const Orden = mongoose.model("ordenes", posSchemas.comanda, "ordenes");
+const Mesas = mongoose.model("mesas", posSchemas.mesas, "mesas");
 
-export { Productos, Orden };
+export { Productos, Orden, Mesas };
