@@ -1,4 +1,5 @@
 import emailRegistro from "../helpers/sendEmail.js";
+import Contacto from "../models/mainModels.js";
 
 const get = async (req, res) => {
   try {
@@ -23,4 +24,14 @@ const emailContacto = async (req, res) => {
   }
 };
 
-export { get, emailContacto };
+const guardarInfo = async (req, res) => {
+  try {
+    const nuevoContacto = new Contacto(req.body);
+    const guardar = await nuevoContacto.save();
+    return res.status(200).json(guardar);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
+export { get, emailContacto, guardarInfo };
