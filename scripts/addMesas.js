@@ -11,7 +11,7 @@ const mesas = [
   { mesa: "8", cantidadPersonas: "4", disponible: true },
 ];
 
-const url = "https://devdesignhub.com/pos/nuevaMesa";
+const url = "http://localhost:4500/pos/nuevaMesa";
 
 mesas.forEach((mesa) => {
   axios

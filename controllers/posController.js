@@ -116,12 +116,10 @@ const nuevaMesa = async (req, res) => {
 
 const obtenerMesasDisponibles = async (req, res) => {
   try {
-    const encontrar = await Mesas.find({
-      disponible: true,
-    });
+    const encontrar = await Mesas.find({});
     const mesasDisponibles = encontrar.map((mesa) => {
       return {
-        id: mesa._id,
+        id: mesa.mesa,
         disponible: mesa.disponible,
         cantidadPersonas: mesa.cantidadPersonas,
       };
