@@ -13,6 +13,20 @@ const nuevoProducto = async (req, res) => {
   }
 };
 
+const obtenerCategorias = async (req, res) => {
+  try {
+    const encontrar = await Productos.distinct("categoria");
+    const categorias = encontrar.map((categoria) => {
+      return {
+        categoria,
+      };
+    });
+    return res.status(200).json(categorias);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 const obtenerProductos = async (req, res) => {
   try {
     const encontrar = await Productos.find({});
@@ -179,4 +193,5 @@ export {
   obtenerMesasDisponibles,
   actualizarMesa,
   asignaroDesocuparMesa,
+  obtenerCategorias,
 };

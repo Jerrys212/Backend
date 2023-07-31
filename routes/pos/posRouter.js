@@ -7,6 +7,7 @@ import {
   nuevaMesa,
   nuevaOrden,
   nuevoProducto,
+  obtenerCategorias,
   obtenerMesasDisponibles,
   obtenerOrden,
   obtenerProductos,
@@ -15,6 +16,7 @@ import {
 const router = express.Router();
 
 router.get("/obtenerProductos", obtenerProductos);
+router.get("/obtenerCategorias", obtenerCategorias);
 router.get("/obtenerOrden/:noOrden", obtenerOrden);
 router.get("/obtenerMesasDisponibles", obtenerMesasDisponibles);
 router.post("/nuevoProducto", nuevoProducto);
