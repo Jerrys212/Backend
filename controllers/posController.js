@@ -131,13 +131,15 @@ const nuevaMesa = async (req, res) => {
 const obtenerMesasDisponibles = async (req, res) => {
   try {
     const encontrar = await Mesas.find({});
-    const mesasDisponibles = encontrar.map((mesa) => {
-      return {
-        id: mesa.mesa,
-        disponible: mesa.disponible,
-        cantidadPersonas: mesa.cantidadPersonas,
-      };
-    });
+    const mesasDisponibles = encontrar
+      .map((mesa) => {
+        return {
+          id: mesa.mesa,
+          disponible: mesa.disponible,
+          cantidadPersonas: mesa.cantidadPersonas,
+        };
+      })
+      .sort((a, b) => a.id - b.id);
     return res.status(200).json(mesasDisponibles);
   } catch (error) {
     console.log(error);
