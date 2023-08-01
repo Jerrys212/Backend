@@ -61,6 +61,15 @@ const actualizarProdcuto = async (req, res) => {
   }
 };
 
+const borrarTodo = async (req, res) => {
+  try {
+    const borrar = await Productos.deleteMany({});
+    return res.status(200).json(borrar);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 //############## ZONA ORDENES ####################
 
 const nuevaOrden = async (req, res) => {
@@ -196,4 +205,5 @@ export {
   actualizarMesa,
   asignaroDesocuparMesa,
   obtenerCategorias,
+  borrarTodo,
 };

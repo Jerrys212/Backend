@@ -4,6 +4,7 @@ import {
   actualizarOrden,
   actualizarProdcuto,
   asignaroDesocuparMesa,
+  borrarTodo,
   nuevaMesa,
   nuevaOrden,
   nuevoProducto,
@@ -25,5 +26,6 @@ router.post("/nuevaOrden", nuevaOrden);
 router.put("/actualizarOrden", actualizarOrden);
 router.put("/asignarMesa", asignaroDesocuparMesa);
 router.put("/actualizarMesa", actualizarMesa);
+router.delete("/borrar", borrarTodo);
 
 export default router;

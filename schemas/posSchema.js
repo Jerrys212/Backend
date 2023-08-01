@@ -3,6 +3,10 @@ import mongoose from "../routes/pos/posMongoose.js";
 const posSchemas = {
   productos: new mongoose.Schema(
     {
+      id: {
+        type: String,
+        required: true,
+      },
       nombre: {
         type: String,
         required: true,
