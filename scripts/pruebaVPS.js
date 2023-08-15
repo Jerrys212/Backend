@@ -1,5 +1,3 @@
-import axios from "axios";
-
 const get = async () => {
   try {
     const { data } = await axios("https://devdesignhub.com");

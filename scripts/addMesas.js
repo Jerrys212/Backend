@@ -1,5 +1,3 @@
-import axios from "axios";
-
 const mesas = [
   { mesa: "1", cantidadPersonas: "2", disponible: true },
   { mesa: "2", cantidadPersonas: "4", disponible: true },

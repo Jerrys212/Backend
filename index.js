@@ -5,6 +5,7 @@ import checklistRouter from "./routes/checklist/checklistRouter.js";
 import posRouter from "./routes/pos/posRouter.js";
 import morgan from "morgan";
 import routerMain from "./routes/main/mainRouter.js";
+import capicRouter from "./routes/capic/capicRouter.js";
 
 const app = express();
 
@@ -19,6 +20,7 @@ const PORT = process.env.PORT || 4000;
 app.use("/", routerMain);
 app.use("/checklist", checklistRouter);
 app.use("/pos", posRouter);
+app.use("/capic", capicRouter);
 
 app.listen(PORT, () => {
   console.log(`servidor funcionando en ${PORT}`);
