@@ -1,5 +1,5 @@
 import emailRegistro from "../helpers/sendEmail.js";
-import Contacto from "../models/mainModels.js";
+import { Contacto, Proyectos } from "../models/mainModels.js";
 
 const get = async (req, res) => {
   try {
@@ -34,4 +34,25 @@ const guardarInfo = async (req, res) => {
   }
 };
 
-export { get, emailContacto, guardarInfo };
+const obtenerProyectos = async (req, res) => {
+  try {
+    const encontrar = await Proyectos.find({});
+    return res.status(200).json(encontrar);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
+const nuevoProyecto = async (req, res) => {
+  try {
+    const nuevo = new Proyectos(req.body);
+    await nuevo.save();
+    return res
+      .status(200)
+      .json({ replyText: "Proyecto Guardado Correctamente" });
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
+export { get, emailContacto, guardarInfo, obtenerProyectos, nuevoProyecto };

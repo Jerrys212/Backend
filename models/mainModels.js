@@ -6,5 +6,10 @@ const Contacto = mongoose.model(
   contactoSchema.contactos,
   "contactos"
 );
+const Proyectos = mongoose.model(
+  "propyecto",
+  contactoSchema.proyectos,
+  "proyectos"
+);
 
-export default Contacto;
+export { Contacto, Proyectos };

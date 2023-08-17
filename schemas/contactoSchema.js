@@ -17,6 +17,20 @@ const contactoSchema = {
     },
     { timestamps: true, versionKey: false }
   ),
+  proyectos: new mongoose.Schema({
+    link: {
+      type: String,
+      required: true,
+    },
+    respositorio: {
+      type: String,
+      required: true,
+    },
+    nombre: {
+      type: String,
+      required: true,
+    },
+  }),
 };
 
 export default contactoSchema;
