@@ -1,4 +1,5 @@
 import mongoose from "../routes/capic/capicMongoose.js";
+import bcrypt from "bcrypt";
 
 const capicSchemas = {
   miembros: new mongoose.Schema(
@@ -16,6 +17,10 @@ const capicSchemas = {
         required: true,
       },
       curp: {
+        type: String,
+        required: true,
+      },
+      password: {
         type: String,
         required: true,
       },
@@ -56,6 +61,20 @@ const capicSchemas = {
     cantidad: { type: Number, required: true },
     semanas: { type: Number, required: true },
   }),
+};
+
+capicSchemas.miembros.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    next();
+  }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+});
+
+capicSchemas.miembros.methods.comprobarPassword = async function (
+  passwordFormulario
+) {
+  return await bcrypt.compare(passwordFormulario, this.password);
 };
 
 export default capicSchemas;
