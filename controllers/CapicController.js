@@ -32,7 +32,7 @@ const perfil = async (req, res) => {
   const { miembro } = req;
   try {
     console.log(miembro);
-    return res.status(200).json({ miembro });
+    return res.status(200).json(miembro);
   } catch (error) {
     console.log(error);
     return res.status(400).json(error);
