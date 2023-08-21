@@ -23,6 +23,7 @@ const autenticar = async (req, res) => {
       console.log("first");
     }
   } catch (error) {
+    console.log(error);
     return res.status(400).json(error);
   }
 };
