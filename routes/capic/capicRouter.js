@@ -28,21 +28,21 @@ router.post("/login", autenticar);
 
 //area privada
 router.get("/obtenerMiembros", capicAuth, get);
-router.post("/obtenerMiembro", getMiembroCurp);
+router.post("/obtenerMiembro", capicAuth, getMiembroCurp);
 router.get("/obtenerPerfil", capicAuth, perfil);
-router.get("/obtenerMiembro/:id", getMiembro);
-router.get("/obtenerGrupos", obtenerGrupos);
-router.get("/obtenerGrupo/:grupo", obtenerGrupo);
-router.get("/obtenerAportaciones", obtenerAportaciones);
-router.get("/obtenerPrestamos", obtenerPrestamos);
-router.post("/obtenerAportaciones", obtenerAportacionesMiembro);
-router.post("/obtenerPrestamos", obtenerPrestamosMiembro);
-router.post("/nuevoMiembro", insertarMiembro);
-router.post("/nuevaAportacion", insertarAportacion);
-router.post("/prestamoValido", prestamoValido);
-router.post("/nuevoPrestamo", nuevoPrestamo);
-router.post("/nuevoGrupo", nuevoGrupo);
-router.put("/editarMiembro", editarMiembro);
-router.delete("/eliminarMiembro/:id", eliminarMiembro);
+router.get("/obtenerMiembro/:id", capicAuth, getMiembro);
+router.get("/obtenerGrupos", capicAuth, obtenerGrupos);
+router.get("/obtenerGrupo/:grupo", capicAuth, obtenerGrupo);
+router.get("/obtenerAportaciones", capicAuth, obtenerAportaciones);
+router.get("/obtenerPrestamos", capicAuth, obtenerPrestamos);
+router.post("/obtenerAportaciones", capicAuth, obtenerAportacionesMiembro);
+router.post("/obtenerPrestamos", capicAuth, obtenerPrestamosMiembro);
+router.post("/nuevoMiembro", capicAuth, insertarMiembro);
+router.post("/nuevaAportacion", capicAuth, insertarAportacion);
+router.post("/prestamoValido", capicAuth, prestamoValido);
+router.post("/nuevoPrestamo", capicAuth, nuevoPrestamo);
+router.post("/nuevoGrupo", capicAuth, nuevoGrupo);
+router.put("/editarMiembro", capicAuth, editarMiembro);
+router.delete("/eliminarMiembro/:id", capicAuth, eliminarMiembro);
 
 export default router;
