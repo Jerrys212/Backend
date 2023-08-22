@@ -18,7 +18,11 @@ const autenticar = async (req, res) => {
         .json({ replyCode: 403, replyText: "El Usuario No existe" });
     }
     if (await usuario.comprobarPassword(password)) {
-      return res.json({ token: generarJWT(usuario._id) });
+      return res.json({
+        _id: usuario._id,
+        rol: usuario.rol,
+        token: generarJWT(usuario._id),
+      });
     } else {
       console.log("first");
     }
@@ -31,7 +35,6 @@ const autenticar = async (req, res) => {
 const perfil = async (req, res) => {
   const { miembro } = req;
   try {
-    console.log(miembro);
     return res.status(200).json(miembro);
   } catch (error) {
     console.log(error);
