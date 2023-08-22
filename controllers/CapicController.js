@@ -88,6 +88,7 @@ const insertarMiembro = async (req, res) => {
     const guardar = await nuevo.save();
     return res.status(200).json(guardar);
   } catch (error) {
+    console.log(error);
     return res.status(400).json(error);
   }
 };
