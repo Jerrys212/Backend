@@ -164,7 +164,7 @@ const insertarAportacion = async (req, res) => {
   const { miembro } = req.body;
 
   try {
-    const encontrar = await Miembros.findOne({ miembro });
+    const encontrar = await Miembros.findOne({ curp: miembro });
     if (!encontrar) {
       return res
         .status(404)
