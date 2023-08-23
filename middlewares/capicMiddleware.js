@@ -18,6 +18,8 @@ const capicAuth = async (req, res, next) => {
       return res.status(403).json({ replyText: "Token No Existe" });
     }
   }
+
+  return res.status(403).json({ replyText: "Unathorized" });
 };
 
 export default capicAuth;
