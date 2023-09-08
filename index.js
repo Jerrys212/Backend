@@ -6,12 +6,13 @@ import posRouter from "./routes/pos/posRouter.js";
 import morgan from "morgan";
 import routerMain from "./routes/main/mainRouter.js";
 import capicRouter from "./routes/capic/capicRouter.js";
-
-const app = express();
-
-app.use(express.json());
 dotenv.config();
 
+const __dirname = (metaURL) => path.dirname(fileURLToPath(metaURL));
+const app = express();
+app.use(express.json());
+app.use(express.static(path.resolve(__dirname(import.meta.url), "./uploads")));
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan("common"));
 app.use(cors({ origin: "*" }));
 

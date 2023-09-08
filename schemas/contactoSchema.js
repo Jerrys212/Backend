@@ -30,6 +30,10 @@ const contactoSchema = {
       type: String,
       required: true,
     },
+    descripcion: {
+      type: String,
+      required: true,
+    },
   }),
 };
 
