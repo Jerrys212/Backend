@@ -5,6 +5,7 @@ import checklistRouter from "./routes/checklist/checklistRouter.js";
 import posRouter from "./routes/pos/posRouter.js";
 import morgan from "morgan";
 import path from "path";
+import { fileURLToPath } from "url";
 import routerMain from "./routes/main/mainRouter.js";
 import capicRouter from "./routes/capic/capicRouter.js";
 dotenv.config();
