@@ -28,8 +28,9 @@ const obtenerCategorias = async (req, res) => {
 };
 
 const obtenerProductos = async (req, res) => {
+  const { categoria } = req.body;
   try {
-    const encontrar = await Productos.find({});
+    const encontrar = await Productos.find({ categoria });
     return res.status(200).json(encontrar);
   } catch (error) {
     console.log(error);

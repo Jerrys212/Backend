@@ -16,10 +16,10 @@ import {
 
 const router = express.Router();
 
-router.get("/obtenerProductos", obtenerProductos);
 router.get("/obtenerCategorias", obtenerCategorias);
 router.get("/obtenerOrden/:noOrden", obtenerOrden);
 router.get("/obtenerMesasDisponibles", obtenerMesasDisponibles);
+router.post("/obtenerProductos", obtenerProductos);
 router.post("/nuevoProducto", nuevoProducto);
 router.post("/nuevaMesa", nuevaMesa);
 router.post("/nuevaOrden", nuevaOrden);
