@@ -9,6 +9,7 @@ import { fileURLToPath } from "url";
 import routerMain from "./routes/main/mainRouter.js";
 import capicRouter from "./routes/capic/capicRouter.js";
 import dulceRouter from "./routes/dulceatardecer/dulceRouter.js";
+import acusticaRouter from "./routes/acustica/acusticaRouter.js";
 dotenv.config();
 
 const __dirname = (metaURL) => path.dirname(fileURLToPath(metaURL));
@@ -26,6 +27,7 @@ app.use("/checklist", checklistRouter);
 app.use("/pos", posRouter);
 app.use("/capic", capicRouter);
 app.use("/dulce", dulceRouter);
+app.use("/acustica", acusticaRouter);
 
 app.listen(PORT, () => {
   console.log(`servidor funcionando en ${PORT}`);
