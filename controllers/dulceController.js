@@ -23,4 +23,16 @@ const agregarProducto = async (req, res) => {
   }
 };
 
-export { obtenerProductos, agregarProducto };
+const borrarTodo = async (req, res) => {
+  try {
+    const borrar = await Productos.deleteMany({});
+    return res
+      .status(200)
+      .json({ replyCode: 200, replyText: "Productos Borrados Correctamente" });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json(error);
+  }
+};
+
+export { obtenerProductos, agregarProducto, borrarTodo };

@@ -129,7 +129,17 @@ const productos = [
   },
 ];
 
-productos.forEach((producto) => {
+const productosConImagen = productos.map((producto) => {
+  const nombreFormateado = producto.nombre.toLowerCase().replace(/\s/g, "-");
+  const imagen = `${nombreFormateado}.avif`;
+
+  return {
+    ...producto,
+    imagen,
+  };
+});
+
+productosConImagen.forEach((producto) => {
   axios
     .post("http://localhost:4000/dulce/agregarProducto", producto)
     .then((res) => console.log(res.data))
