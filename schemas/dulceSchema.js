@@ -24,14 +24,15 @@ const dulceSchema = {
     },
     { versionKey: false, timestamps: true }
   ),
-  ventas: new mongoose.Schema(
+  ordenes: new mongoose.Schema(
     {
-      fecha: {
+      orden: {
         type: String,
         trim: true,
       },
-      mesa: {
-        type: Number,
+      fecha: {
+        type: String,
+        trim: true,
       },
       productos: [Object],
       total: {
