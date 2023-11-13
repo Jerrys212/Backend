@@ -61,14 +61,14 @@ const obtenerCategorias = async (req, res) => {
   }
 };
 
-const nuevaOrden = async (req, res) => {
+const nuevaVenta = async (req, res) => {
   try {
     const registrar = new Ventas(req.body);
     const guardar = await registrar.save();
 
     return res
       .status(200)
-      .json({ reply: "Orden Registrada Correctamente", guardar });
+      .json({ replyCode: 200, replyText: "Venta Registrada Correctamente" });
   } catch (error) {
     console.log(error);
     console.log(error);
@@ -76,12 +76,37 @@ const nuevaOrden = async (req, res) => {
   }
 };
 
-const obtenerOrden = async (req, res) => {
-  const { orden } = req.params;
+const obtenerVentas = async (req, res) => {
+  try {
+    const encontrar = await Ventas.find({});
+    return res.status(200).json(encontrar);
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json(error);
+  }
+};
+
+const obtenerVenta = async (req, res) => {
+  const { venta } = req.params;
 
   try {
-    const encontrar = await Ventas.findOne({ orden });
+    const encontrar = await Ventas.findOne({ venta });
     return res.status(200).json(encontrar);
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json(error);
+  }
+};
+
+const borrarVenta = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const borrar = await Ventas.findByIdAndDelete(id);
+
+    return res
+      .status(200)
+      .json({ replyCode: 200, replyText: "Venta Borrada Correctamente" });
   } catch (error) {
     console.log(error);
     return res.status(400).json(error);
@@ -106,6 +131,8 @@ export {
   actualizarProdcuto,
   obtenerCategorias,
   borrarTodo,
-  nuevaOrden,
-  obtenerOrden,
+  nuevaVenta,
+  obtenerVentas,
+  obtenerVenta,
+  borrarVenta,
 };
