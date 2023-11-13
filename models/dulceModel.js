@@ -1,4 +1,4 @@
-import mongoose from "../routes/acustica/acusticaMongoose.js";
+import mongoose from "../routes/dulceatardecer/dulceMongoose.js";
 import dulceSchema from "../schemas/dulceSchema.js";
 
 const Productos = mongoose.model(
@@ -6,6 +6,6 @@ const Productos = mongoose.model(
   dulceSchema.productos,
   "productos"
 );
-const Ordenes = mongoose.model("ordenes", dulceSchema.ordenes, "ordenes");
+const Ventas = mongoose.model("ventas", dulceSchema.ventas, "ventas");
 
-export { Productos, Ordenes };
+export { Productos, Ventas };

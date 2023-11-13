@@ -24,7 +24,8 @@ const dulceSchema = {
     },
     { versionKey: false, timestamps: true }
   ),
-  ordenes: new mongoose.Schema(
+
+  ventas: new mongoose.Schema(
     {
       orden: {
         type: String,

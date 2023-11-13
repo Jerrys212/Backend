@@ -129,13 +129,20 @@ const productos = [
   },
 ];
 
-const productosConImagen = productos.map((producto) => {
-  const nombreFormateado = producto.nombre.toLowerCase().replace(/\s/g, "-");
-  const imagen = `${nombreFormateado}.avif`;
+function quitarCaracteresEspeciales(texto) {
+  return texto
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^\w\s]/g, "")
+    .replace(/\s+/g, "-");
+}
 
+const productosConImagen = productos.map((producto) => {
+  const nombreFormateado = quitarCaracteresEspeciales(producto.nombre);
   return {
     ...producto,
-    imagen,
+    imagen: `${nombreFormateado}.avif`,
   };
 });
 

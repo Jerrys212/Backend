@@ -1,4 +1,4 @@
-import { Productos, Ordenes } from "../models/dulceModel.js";
+import { Productos, Ventas } from "../models/dulceModel.js";
 
 const obtenerProductos = async (req, res) => {
   try {
@@ -63,7 +63,7 @@ const obtenerCategorias = async (req, res) => {
 
 const nuevaOrden = async (req, res) => {
   try {
-    const registrar = new Ordenes(req.body);
+    const registrar = new Ventas(req.body);
     const guardar = await registrar.save();
 
     return res
@@ -80,7 +80,7 @@ const obtenerOrden = async (req, res) => {
   const { orden } = req.params;
 
   try {
-    const encontrar = await Ordenes.findOne({ orden });
+    const encontrar = await Ventas.findOne({ orden });
     return res.status(200).json(encontrar);
   } catch (error) {
     console.log(error);
