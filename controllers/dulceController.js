@@ -47,6 +47,21 @@ const actualizarProdcuto = async (req, res) => {
   }
 };
 
+const borrarProducto = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const borrar = await Productos.findByIdAndDelete(id);
+
+    return res
+      .status(200)
+      .json({ replyCode: 200, replyText: "Producto Borrado Correctamente" });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json(error);
+  }
+};
+
 const obtenerCategorias = async (req, res) => {
   try {
     const encontrar = await Productos.distinct("categoria");
@@ -135,4 +150,5 @@ export {
   obtenerVentas,
   obtenerVenta,
   borrarVenta,
+  borrarProducto,
 };

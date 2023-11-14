@@ -2,11 +2,7 @@ import mongoose from "mongoose";
 
 try {
   mongoose.connect(
-    "mongodb+srv://jerry:root@cluster0.pqjfph1.mongodb.net/checklist?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
+    "mongodb+srv://jerry:root@cluster0.pqjfph1.mongodb.net/checklist?retryWrites=true&w=majority"
   );
   console.log("Mongo conectado en checklist");
 } catch (error) {

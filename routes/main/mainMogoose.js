@@ -2,11 +2,7 @@ import mongoose from "mongoose";
 
 try {
   mongoose.connect(
-    "mongodb+srv://jerry:root@cluster0.pqjfph1.mongodb.net/contacto?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
+    "mongodb+srv://jerry:root@cluster0.pqjfph1.mongodb.net/contacto?retryWrites=true&w=majority"
   );
   console.log("Mongo conectado en Contacto");
 } catch (error) {

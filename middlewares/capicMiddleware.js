@@ -15,7 +15,9 @@ const capicAuth = async (req, res, next) => {
       return next();
     } catch (error) {
       console.log(error);
-      return res.status(403).json({ replyText: "Token No Existe" });
+      return res
+        .status(403)
+        .json({ replyCode: 403, replyText: "Token No Existe" });
     }
   }
 
