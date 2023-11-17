@@ -35,9 +35,8 @@ const autenticar = async (req, res) => {
     }
     if (await existeUsuario.comprobarPassword(password)) {
       return res.json({
-        _id: usuario._id,
-        rol: usuario.rol,
-        token: generarJWT(usuario._id),
+        _id: existeUsuario._id,
+        token: generarJWT(existeUsuario._id),
       });
     }
   } catch (error) {
@@ -47,9 +46,10 @@ const autenticar = async (req, res) => {
 };
 
 const perfil = async (req, res) => {
-  const { usuario } = req;
+  const { admin } = req;
+  console.log(admin);
   try {
-    return res.status(200).json({ usuario });
+    return res.status(200).json(admin);
   } catch (error) {
     console.log(error);
     return res.status(400).json(error);

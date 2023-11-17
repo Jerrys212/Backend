@@ -2,17 +2,20 @@ import mongoose from "../routes/dulceatardecer/dulceMongoose.js";
 import bcrypt from "bcrypt";
 
 const dulceSchema = {
-  admin: new mongoose.Schema({
-    usuario: {
-      type: String,
-      required: true,
-      trim: true,
+  admin: new mongoose.Schema(
+    {
+      usuario: {
+        type: String,
+        required: true,
+        trim: true,
+      },
+      password: {
+        type: String,
+        required: true,
+      },
     },
-    password: {
-      type: String,
-      required: true,
-    },
-  }),
+    { versionKey: false, timestamps: true }
+  ),
   productos: new mongoose.Schema(
     {
       nombre: {
