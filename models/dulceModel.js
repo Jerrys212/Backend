@@ -7,5 +7,6 @@ const Productos = mongoose.model(
   "productos"
 );
 const Ventas = mongoose.model("ventas", dulceSchema.ventas, "ventas");
+const Admin = mongoose.model("admin", dulceSchema.admin, "admin");
 
-export { Productos, Ventas };
+export { Productos, Ventas, Admin };

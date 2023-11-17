@@ -1,4 +1,60 @@
-import { Productos, Ventas } from "../models/dulceModel.js";
+import generarJWT from "../helpers/generarJWT.js";
+import { Productos, Ventas, Admin } from "../models/dulceModel.js";
+
+const registrar = async (req, res) => {
+  const { usuario } = req.body;
+  const existeUsuario = await Admin.findOne({ usuario });
+
+  if (existeUsuario) {
+    const error = new Error("Usuario ya registrado");
+    return res.status(400).json({ msg: error.message });
+  }
+
+  try {
+    const nuevoUsuario = new Admin(req.body);
+    nuevoUsuario.token = generarJWT();
+    await nuevoUsuario.save();
+
+    res.json({
+      replyCode: 200,
+      replyText:
+        "Usuario Creado Correctamente, Revisa tu Email para confirmar tu cuenta",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const autenticar = async (req, res) => {
+  const { usuario, password } = req.body;
+  try {
+    const existeUsuario = await Admin.findOne({ usuario });
+    if (!existeUsuario) {
+      const error = new Error("El Usuario No existe");
+      return res.status(403).json({ replyCode: 403, replyText: error.message });
+    }
+    if (await existeUsuario.comprobarPassword(password)) {
+      return res.json({
+        _id: usuario._id,
+        rol: usuario.rol,
+        token: generarJWT(usuario._id),
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json(error.message);
+  }
+};
+
+const perfil = async (req, res) => {
+  const { usuario } = req;
+  try {
+    return res.status(200).json({ usuario });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json(error);
+  }
+};
 
 const obtenerProductos = async (req, res) => {
   try {
@@ -141,6 +197,9 @@ const borrarTodo = async (req, res) => {
 };
 
 export {
+  registrar,
+  autenticar,
+  perfil,
   obtenerProductos,
   agregarProducto,
   actualizarProdcuto,

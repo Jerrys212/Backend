@@ -1,6 +1,18 @@
 import mongoose from "../routes/dulceatardecer/dulceMongoose.js";
+import bcrypt from "bcrypt";
 
 const dulceSchema = {
+  admin: new mongoose.Schema({
+    usuario: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+  }),
   productos: new mongoose.Schema(
     {
       nombre: {
@@ -42,6 +54,20 @@ const dulceSchema = {
     },
     { timestamps: true, versionKey: false }
   ),
+};
+
+dulceSchema.admin.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    next();
+  }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+});
+
+dulceSchema.admin.methods.comprobarPassword = async function (
+  passwordFormulario
+) {
+  return await bcrypt.compare(passwordFormulario, this.password);
 };
 
 export default dulceSchema;
