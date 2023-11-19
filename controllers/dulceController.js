@@ -15,10 +15,9 @@ const registrar = async (req, res) => {
     nuevoUsuario.token = generarJWT();
     await nuevoUsuario.save();
 
-    res.json({
+    return res.json({
       replyCode: 200,
-      replyText:
-        "Usuario Creado Correctamente, Revisa tu Email para confirmar tu cuenta",
+      replyText: "Usuario Creado Correctamente",
     });
   } catch (error) {
     console.log(error);
@@ -29,15 +28,20 @@ const autenticar = async (req, res) => {
   const { usuario, password } = req.body;
   try {
     const existeUsuario = await Admin.findOne({ usuario });
+
     if (!existeUsuario) {
       const error = new Error("El Usuario No existe");
       return res.status(403).json({ replyCode: 403, replyText: error.message });
     }
+
     if (await existeUsuario.comprobarPassword(password)) {
       return res.json({
         _id: existeUsuario._id,
         token: generarJWT(existeUsuario._id),
       });
+    } else {
+      const error = new Error("El Usuario o La Contraseña Son Incorrectos");
+      return res.status(403).json({ replyCode: 403, replyText: error.message });
     }
   } catch (error) {
     console.log(error);

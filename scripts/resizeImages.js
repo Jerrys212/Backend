@@ -16,7 +16,7 @@ const redimensionarYConvertirAWebp = async (entrada, salida) => {
         fit: sharp.fit.fill, // Opciones: cover, contain, fill, inside, outside
         withoutEnlargement: false, // Permite agrandar la imagen si es necesario
       })
-      .toFormat("webp")
+      .toFormat("avif")
       .toFile(salida);
 
     console.log("Imagen redimensionada y convertida exitosamente.");
@@ -43,7 +43,7 @@ async function procesarImagenesEnCarpeta(entrada, salida) {
       imagenes.map(async (imagen) => {
         const rutaImagenEntrada = path.join(entrada, imagen);
         const nombreSalida =
-          path.basename(imagen, path.extname(imagen)) + ".webp";
+          path.basename(imagen, path.extname(imagen)) + ".avif";
         const rutaImagenSalida = path.join(salida, nombreSalida);
 
         await redimensionarYConvertirAWebp(rutaImagenEntrada, rutaImagenSalida);
