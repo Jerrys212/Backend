@@ -35,6 +35,23 @@ const contactoSchema = {
       required: true,
     },
   }),
+  habilidades: new mongoose.Schema(
+    {
+      habilidad: {
+        type: String,
+        required: true,
+      },
+      porcentaje: {
+        type: String,
+        required: true,
+      },
+      css: {
+        type: String,
+        required: true,
+      },
+    },
+    { versionKey: false, timestamps: true }
+  ),
 };
 
 export default contactoSchema;

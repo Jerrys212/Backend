@@ -1,5 +1,5 @@
 import emailRegistro from "../helpers/sendEmail.js";
-import { Contacto, Proyectos } from "../models/mainModels.js";
+import { Contacto, Habilidades, Proyectos } from "../models/mainModels.js";
 
 const get = async (req, res) => {
   try {
@@ -55,4 +55,35 @@ const nuevoProyecto = async (req, res) => {
   }
 };
 
-export { get, emailContacto, guardarInfo, obtenerProyectos, nuevoProyecto };
+const nuevaHabilidad = async (req, res) => {
+  try {
+    const nuevaHabilidad = new Habilidades(req.body);
+    await nuevaHabilidad.save();
+    return res
+      .status(200)
+      .json({ replyCode: 200, replyText: "Habilidad Guardada Correctamente" });
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
+const obtenerHabilidades = async (req, res) => {
+  try {
+    const obtenerHabilidades = await Habilidades.find({});
+    return res
+      .status(200)
+      .json({ replyCode: 200, replyText: obtenerHabilidades });
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
+export {
+  get,
+  emailContacto,
+  guardarInfo,
+  obtenerProyectos,
+  nuevoProyecto,
+  nuevaHabilidad,
+  obtenerHabilidades,
+};

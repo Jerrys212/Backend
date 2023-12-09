@@ -12,4 +12,10 @@ const Proyectos = mongoose.model(
   "proyectos"
 );
 
-export { Contacto, Proyectos };
+const Habilidades = mongoose.model(
+  "habilidades",
+  contactoSchema.habilidades,
+  "habilidades"
+);
+
+export { Contacto, Proyectos, Habilidades };
