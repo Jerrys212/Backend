@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+=======
+::1 - - [28/Nov/2023:22:24:05 +0000] "GET / HTTP/1.1" 200 40
+::1 - - [28/Nov/2023:22:24:05 +0000] "GET /favicon.ico HTTP/1.1" 404 150
+::1 - - [28/Nov/2023:22:24:56 +0000] "GET / HTTP/1.1" 304 -
+::1 - - [09/Dec/2023:03:31:23 +0000] "POST /main/nuevaHabilidad HTTP/1.1" 404 159
+::1 - - [09/Dec/2023:03:31:37 +0000] "POST /nuevaHabilidad HTTP/1.1" 400 382
+::1 - - [09/Dec/2023:03:31:45 +0000] "POST /nuevaHabilidad HTTP/1.1" 200 64
+::1 - - [09/Dec/2023:03:32:00 +0000] "GET /obtenerHabilidades HTTP/1.1" 200 134
+::1 - - [09/Dec/2023:03:32:52 +0000] "POST /nuevaHabilidad HTTP/1.1" 200 64
+::1 - - [09/Dec/2023:03:32:54 +0000] "GET /obtenerHabilidades HTTP/1.1" 200 204
+>>>>>>> cdc71f84c89b595f73240148773f7eb5b4dee3e2
