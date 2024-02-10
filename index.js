@@ -11,6 +11,10 @@ import routerMain from "./routes/main/mainRouter.js";
 import capicRouter from "./routes/capic/capicRouter.js";
 import dulceRouter from "./routes/dulceatardecer/dulceRouter.js";
 import acusticaRouter from "./routes/acustica/acusticaRouter.js";
+
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "./swagger/swagger.js";
+
 dotenv.config();
 
 const __dirname = (metaURL) => path.dirname(fileURLToPath(metaURL));
@@ -20,9 +24,9 @@ app.use(express.static(path.resolve(__dirname(import.meta.url), "./uploads")));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("common"));
 app.use(
-        morgan("common", {
-                stream: fs.createWriteStream("./access.log", { flags: "a" }),
-        })
+  morgan("common", {
+    stream: fs.createWriteStream("./access.log", { flags: "a" }),
+  })
 );
 app.use(cors({ origin: "*" }));
 
@@ -34,7 +38,8 @@ app.use("/pos", posRouter);
 app.use("/capic", capicRouter);
 app.use("/dulce", dulceRouter);
 app.use("/acustica", acusticaRouter);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.listen(PORT, () => {
-        console.log(`servidor funcionando en ${PORT}`);
+  console.log(`servidor funcionando en ${PORT}`);
 });
