@@ -16,18 +16,6 @@ import {
 
 const router = express.Router();
 
-/**
- * @swagger
- * /pos/obtenerCategorias:
- *   get:
- *     summary: Obtiene todos los usuarios
- *     description: Devuelve una lista de todos los usuarios.
- *     responses:
- *       200:
- *         description: Éxito
- *       500:
- *         description: Error del servidor
- */
 router.get("/obtenerCategorias", obtenerCategorias);
 router.get("/obtenerOrden/:noOrden", obtenerOrden);
 router.get("/obtenerMesasDisponibles", obtenerMesasDisponibles);
