@@ -2,8 +2,6 @@ node_modules
 package-lock.json
 .env
 uploads
-<<<<<<< HEAD
 *.log
-=======
->>>>>>> cdc71f84c89b595f73240148773f7eb5b4dee3e2
 access.log
+.prettierrc
