@@ -3,5 +3,9 @@ package-lock.json
 .env
 uploads
 *.log
+<<<<<<< HEAD
 access.log
 .prettierrc
+=======
+access.log
+>>>>>>> 45199014180b0af957fa95f444748446b783a232
