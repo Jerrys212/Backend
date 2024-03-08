@@ -11,14 +11,10 @@ import routerMain from "./routes/main/mainRouter.js";
 import capicRouter from "./routes/capic/capicRouter.js";
 import dulceRouter from "./routes/dulceatardecer/dulceRouter.js";
 import acusticaRouter from "./routes/acustica/acusticaRouter.js";
-<<<<<<< HEAD
 import teloRouter from "./routes/teloweb/telorouter.js";
-=======
-
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./swagger/swagger.js";
 
->>>>>>> 45199014180b0af957fa95f444748446b783a232
 dotenv.config();
 
 const __dirname = (metaURL) => path.dirname(fileURLToPath(metaURL));
@@ -28,15 +24,9 @@ app.use(express.static(path.resolve(__dirname(import.meta.url), "./uploads")));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("common"));
 app.use(
-<<<<<<< HEAD
-    morgan("common", {
-        stream: fs.createWriteStream("./access.log", { flags: "a" }),
-    })
-=======
   morgan("common", {
     stream: fs.createWriteStream("./access.log", { flags: "a" }),
   })
->>>>>>> 45199014180b0af957fa95f444748446b783a232
 );
 app.use(cors({ origin: "*" }));
 
@@ -48,15 +38,9 @@ app.use("/pos", posRouter);
 app.use("/capic", capicRouter);
 app.use("/dulce", dulceRouter);
 app.use("/acustica", acusticaRouter);
-<<<<<<< HEAD
 app.use("/telo", teloRouter);
-
-app.listen(PORT, () => {
-    console.log(`servidor funcionando en ${PORT}`);
-=======
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.listen(PORT, () => {
-  console.log(`servidor funcionando en ${PORT}`);
->>>>>>> 45199014180b0af957fa95f444748446b783a232
-});
+    console.log(`servidor funcionando en ${PORT}`);
+
