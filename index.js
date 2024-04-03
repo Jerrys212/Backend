@@ -24,9 +24,9 @@ app.use(express.static(path.resolve(__dirname(import.meta.url), "./uploads")));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("common"));
 app.use(
-  morgan("common", {
-    stream: fs.createWriteStream("./access.log", { flags: "a" }),
-  })
+    morgan("common", {
+        stream: fs.createWriteStream("./access.log", { flags: "a" }),
+    })
 );
 app.use(cors({ origin: "*" }));
 
@@ -43,4 +43,4 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.listen(PORT, () => {
     console.log(`servidor funcionando en ${PORT}`);
-
+});
