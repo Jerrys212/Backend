@@ -91,4 +91,39 @@ const nuevaExperiencia = async (req, res) => {
     }
 };
 
-export { get, emailContacto, guardarInfo, obtenerProyectos, nuevoProyecto, nuevaHabilidad, obtenerHabilidades, obtenerExperiencia, nuevaExperiencia };
+const actualizarExperiencia = async (req, res) => {
+    const { id, ...datosActualizados } = req.body;
+
+    try {
+        const objetoExistente = await Experiencia.findById(id);
+
+        if (!objetoExistente) {
+            return res.status(404).json({ mensaje: "Objeto no encontrado" });
+        }
+
+        Object.keys(datosActualizados).forEach((key) => {
+            objetoExistente[key] = datosActualizados[key];
+        });
+
+        const actualizar = await objetoExistente.save();
+
+        return res.status(200).json(actualizar);
+    } catch (error) {
+        console.log(error);
+        console.log(error);
+        return res.status(400).json(error);
+    }
+};
+
+export {
+    get,
+    emailContacto,
+    guardarInfo,
+    obtenerProyectos,
+    nuevoProyecto,
+    nuevaHabilidad,
+    obtenerHabilidades,
+    obtenerExperiencia,
+    nuevaExperiencia,
+    actualizarExperiencia,
+};

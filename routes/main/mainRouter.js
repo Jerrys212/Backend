@@ -1,5 +1,6 @@
 import express from "express";
 import {
+    actualizarExperiencia,
     emailContacto,
     get,
     guardarInfo,
@@ -22,5 +23,6 @@ router.post("/guardarInfo", guardarInfo);
 router.post("/nuevoProyecto", nuevoProyecto);
 router.post("/nuevaHabilidad", nuevaHabilidad);
 router.post("/nuevaExperiencia", nuevaExperiencia);
+router.put("/actualizarExperiencia", actualizarExperiencia);
 
 export default router;

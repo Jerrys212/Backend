@@ -320,3 +320,11 @@
 ::1 - - [03/Apr/2024:04:14:15 +0000] "POST / HTTP/1.1" 404 140
 ::1 - - [03/Apr/2024:04:14:22 +0000] "GET / HTTP/1.1" 200 40
 ::1 - - [03/Apr/2024:04:15:24 +0000] "POST /nuevaExperiencia HTTP/1.1" 200 66
+::1 - - [04/Apr/2024:01:24:05 +0000] "POST /nuevaExperiencia HTTP/1.1" 200 66
+::1 - - [04/Apr/2024:01:24:15 +0000] "GET /obtenerExperiencia HTTP/1.1" 200 563
+::1 - - [04/Apr/2024:01:27:08 +0000] "PUT /actualizarExperiencia HTTP/1.1" 404 34
+::1 - - [04/Apr/2024:01:27:55 +0000] "PUT /actualizarExperiencia HTTP/1.1" 400 259
+::1 - - [04/Apr/2024:01:28:24 +0000] "PUT /actualizarExperiencia HTTP/1.1" 200 388
+::1 - - [04/Apr/2024:01:28:32 +0000] "GET /obtenerExperiencia HTTP/1.1" 200 766
+::1 - - [04/Apr/2024:01:30:04 +0000] "POST /nuevaExperiencia HTTP/1.1" 200 66
+::1 - - [04/Apr/2024:01:30:07 +0000] "GET /obtenerExperiencia HTTP/1.1" 200 1034

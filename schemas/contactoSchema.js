@@ -63,7 +63,7 @@ const contactoSchema = {
                 required: true,
             },
             descripcion: {
-                type: String,
+                type: Array,
                 required: true,
             },
         },
