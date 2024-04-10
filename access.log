@@ -328,3 +328,4 @@
 ::1 - - [04/Apr/2024:01:28:32 +0000] "GET /obtenerExperiencia HTTP/1.1" 200 766
 ::1 - - [04/Apr/2024:01:30:04 +0000] "POST /nuevaExperiencia HTTP/1.1" 200 66
 ::1 - - [04/Apr/2024:01:30:07 +0000] "GET /obtenerExperiencia HTTP/1.1" 200 1034
+::1 - - [10/Apr/2024:03:19:53 +0000] "POST /capic/login HTTP/1.1" 200 230
